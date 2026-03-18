@@ -2,7 +2,7 @@
   "uid": "find_record_action",
   "type": "workflow-action",
   "config": {
-    "actionUrl": "https://search-agent-backend-r71vuyp5o-shubhamnsrmu-3609s-projects.vercel.app/api/find-record",
+    "actionUrl": "https://search-app-hubspot.vercel.app/api/find-record",
     "isPublished": false,
     "supportedClients": [
       {
