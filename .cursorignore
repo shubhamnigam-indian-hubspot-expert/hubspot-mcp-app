@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+.next/
+.nuxt/
+.vercel/
+
+# Cache and logs
+.cache/
+*.log
+.eslintcache
+
+# Environment and secrets
+.env
+.env.*
+
+# Coverage and test artifacts
+coverage/
+.nyc_output/
+
+# Git
+.git/
