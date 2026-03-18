@@ -1,0 +1,13 @@
+{
+  "uid": "ticket_analytics_card",
+  "type": "card",
+  "config": {
+    "name": "Ticket Analytics Dashboard",
+    "description": "Displays ticket properties and analytics metrics in charts.",
+    "entrypoint": "/app/cards/ticket-analytics-card.tsx",
+    "location": "crm.record.tab",
+    "objectTypes": [
+      "TICKETS"
+    ]
+  }
+}

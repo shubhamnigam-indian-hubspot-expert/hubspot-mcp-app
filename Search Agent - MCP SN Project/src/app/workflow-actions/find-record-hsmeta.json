@@ -1,0 +1,108 @@
+{
+  "uid": "find_record_action",
+  "type": "workflow-action",
+  "config": {
+    "actionUrl": "https://search-agent-backend-r71vuyp5o-shubhamnsrmu-3609s-projects.vercel.app/api/find-record",
+    "isPublished": false,
+    "supportedClients": [
+      {
+        "client": "WORKFLOWS"
+      },
+      {
+        "client": "AGENTS",
+        "toolType": "GET_DATA",
+        "llmConfig": {
+          "actionDescription": "Use this tool to find a HubSpot CRM record by its unique identifier. Provide objectType (e.g., contacts, companies, deals, tickets, leads), the property to search by (e.g., email, hs_object_id, domain), and the search value. Returns the record ID and properties. For contacts use email, for companies use domain, for any object use hs_object_id with the numeric ID."
+        }
+      }
+    ],
+    "inputFields": [
+      {
+        "typeDefinition": {
+          "name": "objectType",
+          "type": "enumeration",
+          "fieldType": "select",
+          "options": [
+            { "value": "contacts", "label": "Contact" },
+            { "value": "companies", "label": "Company" },
+            { "value": "deals", "label": "Deal" },
+            { "value": "tickets", "label": "Ticket" },
+            { "value": "leads", "label": "Lead" }
+          ]
+        },
+        "supportedValueTypes": ["STATIC_VALUE"],
+        "isRequired": true
+      },
+      {
+        "typeDefinition": {
+          "name": "searchProperty",
+          "type": "enumeration",
+          "fieldType": "select",
+          "options": [
+            { "value": "hs_object_id", "label": "Record ID (hs_object_id)" },
+            { "value": "email", "label": "Email" },
+            { "value": "domain", "label": "Domain" }
+          ]
+        },
+        "supportedValueTypes": ["STATIC_VALUE"],
+        "isRequired": true
+      },
+      {
+        "typeDefinition": {
+          "name": "searchValue",
+          "type": "string",
+          "fieldType": "text"
+        },
+        "supportedValueTypes": ["STATIC_VALUE"],
+        "isRequired": true
+      }
+    ],
+    "outputFields": [
+      {
+        "typeDefinition": {
+          "name": "found",
+          "type": "string",
+          "fieldType": "text"
+        }
+      },
+      {
+        "typeDefinition": {
+          "name": "recordId",
+          "type": "string",
+          "fieldType": "text"
+        }
+      },
+      {
+        "typeDefinition": {
+          "name": "recordProperties",
+          "type": "string",
+          "fieldType": "textarea"
+        }
+      }
+    ],
+    "labels": {
+      "en": {
+        "actionName": "Find Record",
+        "actionDescription": "Find a HubSpot CRM record by its unique identifier. Works for all object types including custom objects.",
+        "actionCardContent": "Find {{objectType}} by {{searchProperty}}",
+        "appDisplayName": "Find Record",
+        "inputFieldLabels": {
+          "objectType": "Object type",
+          "searchProperty": "Search by property",
+          "searchValue": "Search value"
+        },
+        "inputFieldDescriptions": {
+          "objectType": "Select the type of record to find (includes standard and custom objects)",
+          "searchProperty": "The unique property to search by (Record ID, Email, Domain, or custom unique properties)",
+          "searchValue": "The value to search for (e.g., email address, domain, or record ID)"
+        },
+        "outputFieldLabels": {
+          "found": "Record found",
+          "recordId": "Record ID",
+          "recordProperties": "Record properties (JSON)"
+        }
+      }
+    },
+    "objectTypes": []
+  }
+}

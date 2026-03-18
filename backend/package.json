@@ -1,0 +1,9 @@
+{
+  "name": "find-record-backend",
+  "version": "1.0.0",
+  "description": "Backend for HubSpot Find Record workflow action and agent tool",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  }
+}
